@@ -10,10 +10,10 @@
 
     <div class="wrapper">
 
-        @include('layouts.header')  
+        @include('layouts.header',['overlay'=>(isset($overlay)) ? $overlay:null])  
 
         @yield('hero')
-        
+        @yield('page-title')
         <section class="body-content">
             @yield('content')
         </section>
