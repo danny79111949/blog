@@ -13,9 +13,9 @@
                 <!--logo start-->
                 <a href="/" class="logo-brand">
                     @isset($overlay)
-                        <img class="retina" src="assets/img/logo-dark.png" alt="Massive">
+                        <img class="retina" src="/assets/img/logo-dark.png" alt="Massive">
                     @else  
-                        <img class="retina" src="assets/img/logo.png" alt="Massive"> 
+                        <img class="retina" src="/assets/img/logo.png" alt="Massive"> 
                     @endisset
                     
                 </a>
@@ -33,8 +33,8 @@
                     <li class="@if(request()->is('contact')) active @endif">
                         <a href="/contact">Contact</a>   
                     </li>
-                    <li>
-                        <a href="/blog">Blog</a>   
+                    <li class="@if(request()->is('posts')) active @endif">
+                        <a href="/posts">Blog</a>   
                     </li>
 
                 </ul>
