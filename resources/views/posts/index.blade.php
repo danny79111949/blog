@@ -44,7 +44,7 @@
                             <li><i class="fa fa-comments"></i>  <a href="#">4 comments</a>
                             </li>
                         </ul>
-                        <p>{{str_limit($ost->content,200)}}</p>
+                        <p>{{str_limit($post->content,200)}}</p>
                         <a href="/posts/1" class="btn btn-small btn-dark-solid  "> Continue Reading</a>
                     </div>
                 </div>

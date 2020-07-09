@@ -19,8 +19,8 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $post = new Post;
-        $post->fill($request->input());
-        $post->user_id = 1;
+        $post->fill($request->all());
+        //$post->user_id = 1;
         $post->save();
         return redirect('/posts');
     }
