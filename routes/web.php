@@ -23,10 +23,17 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
+Route::get('/posts/create','PostController@create');
 Route::post('/posts','PostController@store');
 Route::get('/posts/{post}','PostController@show');
 Route::put('/posts/{post}','PostController@update');
 Route::delete('/posts/{post}','PostController@destory');
-Route::get('/posts/create','PostController@create');
 Route::get('/posts/{post}/edit','PostController@edit');
 Route::get('/posts','PostController@index');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
