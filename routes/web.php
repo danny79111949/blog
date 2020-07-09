@@ -23,10 +23,10 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/posts', function () {
-    return view('posts.list');
-});
-
-Route::get('/posts/{id}', function ($id) {
-    return view('posts.show');
-});
+Route::post('/posts','PostController@store');
+Route::get('/posts/{post}','PostController@show');
+Route::put('/posts/{post}','PostController@update');
+Route::delete('/posts/{post}','PostController@destory');
+Route::get('/posts/create','PostController@create');
+Route::get('/posts/{post}/edit','PostController@edit');
+Route::get('/posts','PostController@index');
