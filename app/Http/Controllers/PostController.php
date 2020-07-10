@@ -27,10 +27,22 @@ class PostController extends Controller
         $post->fill($request->all());
         //$post->user_id = 1;
         $post->save();
-        return redirect('/posts');
+        return redirect('/posts/admin');
     }
     public function show(Post $post)
     {
         return view('posts.showByAdmin',['post'=>$post]);
     }
+    public function edit(Post $post)
+    {
+        return view('posts.edit',['post'=>$post]);
+    }
+
+    public function update(Request $request,Post $post)
+    {
+        $post->fill($request->all());
+        $post->save();
+        return redirect('/posts/admin');
+    }
+
 }
