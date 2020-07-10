@@ -348,7 +348,7 @@ border-bottom: 1px solid #efefef;
                     <div class="full-width avatar">
                         <img src="assets/img/post/avatar.jpg" alt="" />
                     </div>
-                    <p>Persuaded to return to the shoemaker's shop, young Edward struggled on till three years of his wretched apprenticeship had passed over.</p>
+                    <p>Persuaded to return to the shoemaker'\''s shop, young Edward struggled on till three years of his wretched apprenticeship had passed over.</p>
 
                     <span class="">- Nelson Leonard</span>
                 </div>
