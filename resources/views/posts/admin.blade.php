@@ -20,7 +20,7 @@
 @section('content')
 <div class="page-content">
     <div class="container">
-        <div class="clearfix">
+        <div class="clearfix toolbox">
             <a href="/posts/create" class="btn btn-primary pull-right">建立新文章</a>
         </div>
         
