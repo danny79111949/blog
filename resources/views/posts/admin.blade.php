@@ -24,12 +24,19 @@
             <a href="/posts/create" class="btn btn-primary pull-right">建立新文章</a>
         </div>
         
-        <div class="list-group">
+        <ul class="list-group">
             @foreach ($posts as $post)
-                <a href="/posts/show/{{$post->id}}" class="list-group-item">{{$post->title}}</a>
+                <li  class="list-group-item clearfix">
+                    {{$post->title}}
+                    <span class="pull-right">
+                        <a href="/posts/show/{{$post->id}}" class="btn btn-default">查看</a>
+                        <a href="/posts/{{$post->id}}/edit" class="btn btn-primary">編輯</a>
+                        <button class="btn btn-danger">刪除</button>
+                    </span>
+                </li>
                 
             @endforeach
-        </div>
+            </ul>
         
     </div>
 </div>
