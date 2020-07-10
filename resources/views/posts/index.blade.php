@@ -7,11 +7,9 @@
             <div class="col-md-12">
                 <h4 class="text-uppercase">文章列表</h4>
                 <ol class="breadcrumb">
-                    <li><a href="#">Home</a>
+                    <li><a href="/">首頁</a>
                     </li>
-                    <li class="active"><a href="#">Blog</a>
-                    </li>
-                    <li class="active">Blog Listing</li>
+                    <li class="active">文章列表</li>
                 </ol>
             </div>
         </div>
