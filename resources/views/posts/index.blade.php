@@ -33,7 +33,7 @@
                         <div class="full-width">
                             <img src="/assets/img/post/p12.jpg" alt="" />
                         </div>
-                        <h4 class="text-uppercase"><a href="/posts/1">{{$post->title}}</a></h4>
+                        <h4 class="text-uppercase"><a href="/posts/{{$post->id}}">{{$post->title}}</a></h4>
                         <ul class="post-meta">
                             <li><i class="fa fa-user"></i>posted by <a href="#">admin</a>
                             </li>
@@ -43,7 +43,7 @@
                             </li>
                         </ul>
                         <p>{{str_limit($post->content,200)}}</p>
-                        <a href="/posts/1" class="btn btn-small btn-dark-solid  "> Continue Reading</a>
+                        <a href="/posts/{{$post->id}}" class="btn btn-small btn-dark-solid  "> Continue Reading</a>
                     </div>
                 </div>
                 @endforeach
