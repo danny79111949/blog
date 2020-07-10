@@ -25,16 +25,16 @@
                
                 <ul class="menuzord-menu menuzord-right c-nav_s-standard">
                     <li class="@if(request()->is('/')) active @endif">
-                        <a href="/">Home</a>   
+                        <a href="/">首頁</a>   
                     </li>
                     <li class="@if(request()->is('about')) active @endif">
-                        <a href="/about">About</a>   
+                        <a href="/about">關於我</a>   
                     </li>
                     <li class="@if(request()->is('contact')) active @endif">
-                        <a href="/contact">Contact</a>   
+                        <a href="/contact">聯繫我</a>   
                     </li>
                     <li class="@if(request()->is('posts')) active @endif">
-                        <a href="/posts">Blog</a>   
+                        <a href="/posts">文章頁</a>   
                     </li>
 
                 </ul>

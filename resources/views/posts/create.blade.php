@@ -5,13 +5,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h4 class="text-uppercase">Create Post</h4>
+                <h4 class="text-uppercase">建立新文章</h4>
                 <ol class="breadcrumb">
-                    <li><a href="#">Home</a>
+                    <li><a href="/">首頁</a>
                     </li>
-                    <li class="active"><a href="#">Blog</a>
+                    <li ><a href="/posts/admin">文章管理者頁面</a>
                     </li>
-                    <li class="active">Blog Listing</li>
+                    <li class="active">建立新文章</li>
                 </ol>
             </div>
         </div>
@@ -25,14 +25,15 @@
         <form method="POST" action="/posts">
             @csrf
             <div class="from-group">
-                <label>title</label>
+                <label>標題</label>
                 <input type="text" name="title" class="form-control"/>
             </div>
             <div class="from-group">
-                <label>content</label>
+                <label>內文</label>
                 <textarea class="form-control" name="content" rows="8" cols="80"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">submit</button>
+            <button type="submit" class="btn btn-primary">儲存</button>
+            <button type="button" class="btn btn-danger" onclick="window.history.back()">取消</button>
         </form>
     </div>
 </div>

@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h4 class="text-uppercase">Blog Listing</h4>
+                <h4 class="text-uppercase">文章列表</h4>
                 <ol class="breadcrumb">
                     <li><a href="#">Home</a>
                     </li>
@@ -92,7 +92,7 @@
                     <div class="full-width avatar">
                         <img src="/assets/img/post/avatar.jpg" alt="" />
                     </div>
-                    <p>Persuaded to return to the shoemaker's shop, young Edward struggled on till three years of his wretched apprenticeship had passed over.</p>
+                    <p>Persuaded to return to the shoemaker '\''s shop, young Edward struggled on till three years of his wretched apprenticeship had passed over.</p>
 
                     <span class="">- Nelson Leonard</span>
                 </div>
