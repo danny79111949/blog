@@ -12793,6 +12793,25 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+$.ajaxSetup({
+  headers: {
+    'X_CSRF_TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
+});
+
+deletePost = function deletePost(id) {
+  var result = confirm('確定要刪除這篇文章嗎?');
+
+  if (result) {
+    var actionUrl = '/posts/' + id;
+    $.post(actionUrl, {
+      _method: 'delete'
+    }).done(function () {
+      location.href = '/posts/admin';
+    });
+  }
+};
+
 /***/ }),
 
 /***/ "./resources/js/components/ExampleComponent.vue":

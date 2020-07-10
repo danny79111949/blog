@@ -29,3 +29,21 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  */
 
 
+$.ajaxSetup({
+
+    headers:{
+        'X_CSRF_TOKEN':$('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+deletePost = function(id)
+{
+    let result = confirm('確定要刪除這篇文章嗎?');
+    if(result)
+    {
+        let actionUrl = '/posts/'+id;
+        $.post(actionUrl,{_method:'delete'}).done(function(){
+            location.href ='/posts/admin';
+        });
+    }
+}; 

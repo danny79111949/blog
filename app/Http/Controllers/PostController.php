@@ -44,5 +44,8 @@ class PostController extends Controller
         $post->save();
         return redirect('/posts/admin');
     }
-
+    public function destory(Post $post)
+    {
+        $post->delete();
+    }
 }

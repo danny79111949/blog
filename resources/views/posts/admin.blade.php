@@ -31,7 +31,7 @@
                     <span class="pull-right">
                         <a href="/posts/show/{{$post->id}}" class="btn btn-default">查看</a>
                         <a href="/posts/{{$post->id}}/edit" class="btn btn-primary">編輯</a>
-                        <button class="btn btn-danger">刪除</button>
+                        <button class="btn btn-danger" onclick="deletePost({{$post->id}})">刪除</button>
                     </span>
                 </li>
                 
