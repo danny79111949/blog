@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Post;
 
+
 class PostController extends Controller
 {
     public function admin()
@@ -52,5 +53,16 @@ class PostController extends Controller
     public function destory(Post $post)
     {
         $post->delete();
+    }
+
+    public function postListByUser($id)
+    {
+        $posts = Post::where('user_id',$id)->get();
+        return json_encode($posts,JSON_UNESCAPED_UNICODE);
+    }
+    public function postList()
+    {
+        $posts = Post::all();
+        return json_encode($posts,JSON_UNESCAPED_UNICODE);
     }
 }
