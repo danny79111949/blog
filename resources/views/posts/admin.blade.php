@@ -27,7 +27,12 @@
         <ul class="list-group">
             @foreach ($posts as $post)
                 <li  class="list-group-item clearfix">
-                    {{$post->title}}
+                    <div class="pull-left">
+                        <div>{{$post->title}}</div>
+                        <small>{{$post->user->name}}</small>
+                    </div>
+                    
+                    
                     <span class="pull-right">
                         <a href="/posts/show/{{$post->id}}" class="btn btn-default">查看</a>
                         <a href="/posts/{{$post->id}}/edit" class="btn btn-primary">編輯</a>
