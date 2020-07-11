@@ -30,9 +30,13 @@ class PostController extends Controller
         $post->save();
         return redirect('/posts/admin');
     }
-    public function show(Post $post)
+    public function showByAdmin(Post $post)
     {
         return view('posts.showByAdmin',['post'=>$post]);
+    }
+    public function show(Post $post)
+    {
+        return view('posts.show',['post'=>$post]);
     }
     public function edit(Post $post)
     {

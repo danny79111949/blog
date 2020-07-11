@@ -26,7 +26,7 @@ Route::get('/contact', function () {
 Route::middleware(['auth'])->group(function(){
 
     Route::get('/posts/admin','PostController@admin');
-    Route::get('/posts/show/{post}','PostController@show');
+    Route::get('/posts/show/{post}','PostController@showByAdmin');
     Route::get('/posts/create','PostController@create');
     Route::post('/posts','PostController@store');
     Route::put('/posts/{post}','PostController@update');
