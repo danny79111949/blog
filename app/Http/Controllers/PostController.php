@@ -25,7 +25,7 @@ class PostController extends Controller
     {
         $post = new Post;
         $post->fill($request->all());
-        //$post->user_id = 1;
+        $post->user_id = Auth::id();
         $post->save();
         return redirect('/posts/admin');
     }
