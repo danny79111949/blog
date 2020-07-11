@@ -23,16 +23,19 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/posts/admin','PostController@admin');
+Route::middleware(['auth'])->group(function(){
 
-Route::get('/posts/show/{post}','PostController@show');
+    Route::get('/posts/admin','PostController@admin');
+    Route::get('/posts/show/{post}','PostController@show');
+    Route::get('/posts/create','PostController@create');
+    Route::post('/posts','PostController@store');
+    Route::put('/posts/{post}','PostController@update');
+    Route::delete('/posts/{post}','PostController@destory');
+    Route::get('/posts/{post}/edit','PostController@edit');
+});
 
-Route::get('/posts/create','PostController@create');
-Route::post('/posts','PostController@store');
+
 Route::get('/posts/{post}','PostController@show');
-Route::put('/posts/{post}','PostController@update');
-Route::delete('/posts/{post}','PostController@destory');
-Route::get('/posts/{post}/edit','PostController@edit');
 Route::get('/posts','PostController@index');
 
 Auth::routes();
