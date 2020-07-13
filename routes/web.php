@@ -24,16 +24,10 @@ Route::get('/contact', function () {
 });
 
 Route::middleware(['auth'])->group(function(){
-
+    Route::resource('posts', 'PostController', ['except' => ['show', 'index']]);
     Route::get('/posts/admin','PostController@admin');
     Route::get('/posts/show/{post}','PostController@showByAdmin');
-    Route::get('/posts/create','PostController@create');
-    Route::post('/posts','PostController@store');
-    Route::put('/posts/{post}','PostController@update');
-    Route::delete('/posts/{post}','PostController@destory');
-    Route::get('/posts/{post}/edit','PostController@edit');
 });
-
 
 Route::get('/posts/{post}','PostController@show');
 Route::get('/posts','PostController@index');
