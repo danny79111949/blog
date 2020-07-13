@@ -1,3 +1,8 @@
+@php
+$isCreate = !$post->exists;
+$actionUrl = $isCreate ? '/posts' : '/posts/'.$post->id;
+@endphp
+
 @if($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -7,9 +12,11 @@
         </ul>
     </div>
 @endif
-<form method="POST" action="/posts/{{$post->id}}">
+<form method="POST" action="{{$actionUrl}}">
     @csrf
+    @if(!$isCreate)
     <input type="hidden" name="_method" value="put"/>
+    @endif
     <div class="from-group">
         <label>標題</label>
         <input type="text" name="title" class="form-control" value="{{$post->title}}"/>
