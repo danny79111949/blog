@@ -24,9 +24,12 @@ Route::get('/contact', function () {
 });
 
 Route::middleware(['auth'])->group(function(){
-    Route::resource('posts', 'PostController', ['except' => ['show', 'index']]);
+    
+    Route::resource('posts', 'PostController')->except(['show','index']);
     Route::get('/posts/admin','PostController@admin');
     Route::get('/posts/show/{post}','PostController@showByAdmin');
+
+    Route::resource('category', 'CategoryController')->except(['show']);
 });
 
 Route::get('/posts/{post}','PostController@show');
