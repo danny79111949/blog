@@ -29,7 +29,7 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/posts/admin','PostController@admin');
     Route::get('/posts/show/{post}','PostController@showByAdmin');
 
-    Route::resource('category', 'CategoryController')->except(['show']);
+    Route::resource('categories', 'CategoryController')->except(['show']);
 });
 
 Route::get('/posts/{post}','PostController@show');

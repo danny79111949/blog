@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Category;
+
 class CategoryController extends Controller
 {
     /**
@@ -13,7 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+        return view('categories.index',['categories'=>$categories]);
     }
 
     /**
@@ -23,7 +26,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        $category = new Category;
+        return view('categories.create',['category'=>$category]);
     }
 
     /**
@@ -34,19 +38,12 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = new Category;
+        $category->fill($request->all());
+        $category->save();
+        return redirect('/categories');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -77,8 +74,8 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+        $category->delete();
     }
 }

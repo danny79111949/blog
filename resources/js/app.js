@@ -47,3 +47,15 @@ deletePost = function(id)
         });
     }
 }; 
+
+deleteCategory = function(id)
+{
+    let result = confirm('確定要刪除這個分類嗎?');
+    if(result)
+    {
+        let actionUrl = '/categories/'+id;
+        $.post(actionUrl,{_method:'delete'}).done(function(){
+            location.href ='/categories';
+        });
+    }
+};

@@ -49531,6 +49531,19 @@ deletePost = function deletePost(id) {
   }
 };
 
+deleteCategory = function deleteCategory(id) {
+  var result = confirm('確定要刪除這個分類嗎?');
+
+  if (result) {
+    var actionUrl = '/categories/' + id;
+    $.post(actionUrl, {
+      _method: 'delete'
+    }).done(function () {
+      location.href = '/categories';
+    });
+  }
+};
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
