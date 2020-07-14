@@ -18,7 +18,7 @@ $actionUrl = $isCreate ? '/categories' : '/categories/'.$category->id;
     <input type="hidden" name="_method" value="put"/>
     @endif
     <div class="from-group">
-        <label>標題</label>
+        <label>分類</label>
         <input type="text" name="name" class="form-control" value="{{$category->name}}"/>
     </div>
    
