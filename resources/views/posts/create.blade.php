@@ -1,4 +1,4 @@
-@extends('layouts.frontend')
+@extends('layouts.app')
 
 @section('page-title')
 <section class="page-title">

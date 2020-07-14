@@ -5,7 +5,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+
 
 window.Vue = require('vue');
 
@@ -36,14 +36,3 @@ $.ajaxSetup({
     }
 });
 
-deletePost = function(id)
-{
-    let result = confirm('確定要刪除這篇文章嗎?');
-    if(result)
-    {
-        let actionUrl = '/posts/'+id;
-        $.post(actionUrl,{_method:'delete'}).done(function(){
-            location.href ='/posts/admin';
-        });
-    }
-}; 
