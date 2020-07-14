@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
 
 use App\Http\Requests\StoreCategoryRequest;
 use App\Category;
@@ -82,10 +83,20 @@ class CategoryController extends Controller
         $category->delete();
     }
 
-    public function newCategory(StoreCategoryRequest $request)
+    public function newCategory(Request $request)
     {
+        $validator = Validator::make($request->all(), 
+        [
+            'name' => 'required|max:255',
+        ]);
+
+        if ($validator->fails()) {
+            return json_encode(['errCode'=>401,'msg'=>'參數有誤'],JSON_UNESCAPED_UNICODE);
+        }
         $category = new Category;
         $category->fill($request->all());
         $category->save();
+
+        return json_encode(['errCode'=>200,'msg'=>'保存成功'],JSON_UNESCAPED_UNICODE);
     }
 }
