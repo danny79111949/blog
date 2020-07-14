@@ -81,4 +81,11 @@ class CategoryController extends Controller
     {
         $category->delete();
     }
+
+    public function newCategory(StoreCategoryRequest $request)
+    {
+        $category = new Category;
+        $category->fill($request->all());
+        $category->save();
+    }
 }
