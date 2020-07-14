@@ -7,11 +7,11 @@
             <div class="col-md-12">
                 <h4 class="text-uppercase">文章管理</h4>
                 <ol class="breadcrumb">
-                    <li><a href="/">首頁</a>
+                    <li class="breadcrumb-item"><a href="/">首頁</a>
                     </li>
-                    <li ><a href="/posts/admin">文章管理者頁面</a>
+                    <li class="breadcrumb-item"><a href="/posts/admin">文章管理者頁面</a>
                     </li>
-                    <li class="active">文章管理</li>
+                    <li class="breadcrumb-item active">文章管理</li>
                 </ol>
             </div>
         </div>

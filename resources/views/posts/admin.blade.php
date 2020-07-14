@@ -7,9 +7,9 @@
             <div class="col-md-12">
                 <h4 class="text-uppercase">文章管理者頁面</h4>
                 <ol class="breadcrumb">
-                    <li><a href="/">首頁</a>
+                    <li class="breadcrumb-item"><a href="/">首頁</a>
                     </li>
-                    <li class="active">文章管理者頁面</li>
+                    <li class="breadcrumb-item active">文章管理者頁面</li>
                 </ol>
             </div>
         </div>
@@ -27,14 +27,14 @@
         <ul class="list-group">
             @foreach ($posts as $post)
                 <li  class="list-group-item clearfix">
-                    <div class="pull-left">
+                    <div class="float-left">
                         <div>{{$post->title}}</div>
                         <small>{{$post->user->name}}</small>
                     </div>
                     
                     
-                    <span class="pull-right">
-                        <a href="/posts/show/{{$post->id}}" class="btn btn-default">查看</a>
+                    <span class="float-right">
+                        <a href="/posts/show/{{$post->id}}" class="btn btn-secondary">查看</a>
                         <a href="/posts/{{$post->id}}/edit" class="btn btn-primary">編輯</a>
                         <button class="btn btn-danger" onclick="deletePost({{$post->id}})">刪除</button>
                     </span>
