@@ -35,4 +35,13 @@ class StoreBlogPost extends FormRequest
             'content'=>'required',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'title.required'=>'標題為必填',
+            'title.max'=>'標題過長',
+            'content.required'=>'內容為必填',
+        ];
+    }
 }
