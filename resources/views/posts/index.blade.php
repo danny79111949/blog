@@ -31,8 +31,8 @@
                 <div class="blog-classic">
 
                     <div class="date">
-                        24
-                        <span>MAR 2015</span>
+                        {{$post->created_at->day}}
+                        <span>{{$post->created_at->shortEnglishMonth}} {{$post->created_at->year}}</span>
                     </div>
                     <div class="blog-post">
                         <div class="full-width">
