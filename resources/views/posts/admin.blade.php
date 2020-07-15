@@ -29,6 +29,7 @@
                 <li  class="list-group-item clearfix">
                     <div class="float-left">
                         <div>{{$post->title}}</div>
+                        @if(isset($post->category))<small class="d-block text-muted">{{$post->category->name}}</small>@endif
                         <small>{{$post->user->name}}</small>
                     </div>
                     
