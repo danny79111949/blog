@@ -32,7 +32,7 @@
 
                     <div class="date">
                         {{$post->created_at->day}}
-                        <span>{{$post->created_at->shortEnglishMonth}} {{$post->created_at->year}}</span>
+                        <span>{{$post->created_at->month}} {{$post->created_at->year}}</span>
                     </div>
                     <div class="blog-post">
                         <div class="full-width">
