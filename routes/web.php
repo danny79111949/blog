@@ -30,6 +30,7 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/posts/show/{post}','PostController@showByAdmin');
 
     Route::resource('categories', 'CategoryController')->except(['show']);
+    Route::resource('tags', 'TagController')->only(['index','destory']);
 });
 
 Route::get('/posts/{post}','PostController@show');

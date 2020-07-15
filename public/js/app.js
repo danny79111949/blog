@@ -49544,6 +49544,19 @@ deleteCategory = function deleteCategory(id) {
   }
 };
 
+deleteTag = function deleteTag(id) {
+  var result = confirm('確定要刪除這個標籤嗎?');
+
+  if (result) {
+    var actionUrl = '/tags/' + id;
+    $.post(actionUrl, {
+      _method: 'delete'
+    }).done(function () {
+      location.href = '/tags';
+    });
+  }
+};
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

@@ -61,6 +61,9 @@
                                     <a class="dropdown-item" href="/categories">
                                         分類管理
                                     </a>
+                                    <a class="dropdown-item" href="/tags">
+                                        標籤管理
+                                    </a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
