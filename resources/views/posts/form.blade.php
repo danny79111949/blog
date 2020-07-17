@@ -33,6 +33,11 @@ $actionUrl = $isCreate ? '/posts' : '/posts/'.$post->id;
 
         </select>
     </div>
+
+    <div class="from-group">
+        <label>標籤</label>
+        <input type="text" name="tags" class="form-control" value=""/>
+    </div>
     
     <div class="from-group">
         <label>內文</label>
