@@ -52,13 +52,12 @@
 
                             <div class="widget-tags">
                                 <h6 class="text-uppercase">Tags </h6>
-                                <a href="">Portfolio</a>
-                                <a href="">Design</a>
-                                <a href="">Link</a>
-                                <a href="">Gallery</a>
-                                <a href="">Video</a>
-                                <a href="">Clean</a>
-                                <a href="">Retina</a>
+
+                                @foreach ($post->tags as $tag)
+                                    <a href="">{{$tag->name}}</a>
+                                @endforeach
+                                
+                                
                             </div>
                         </div>
 
