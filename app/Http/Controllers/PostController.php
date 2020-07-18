@@ -18,19 +18,35 @@ class PostController extends Controller
         $posts = Post::all();
         return view('posts.admin',['posts'=>$posts]);
     }
+    private function categories()
+    {
+       return Category::all();
+    }
+    private function tags()
+    {
+       return Tag::has('posts')->withCount('posts')->orderBy('posts_count','desc')->get();
+    }
     public function index()
     {
         $posts = Post::all();
-        $categories = Category::all();
-        $tags = Tag::all();
+        $categories = $this->categories();
+        $tags = $this->tags();
         return view('posts.index',['posts'=>$posts,'categories'=>$categories,'tags'=>$tags]);
     }
     public function indexWithCategory(Category $category)
     {
         $posts = Post::where('category_id',$category->id)->get();
-        $categories = Category::all();
-        return view('posts.index',['posts'=>$posts,'categories'=>$categories]);
+        $categories = $this->categories();
+        $tags = $this->tags();
+        return view('posts.index',['posts'=>$posts,'categories'=>$categories,'tags'=>$tags]);
     }
+    public function indexWithTag(Tag $tag)
+    {
+        $categories = $this->categories();
+        $tags = $this->tags();
+        return view('posts.index',['posts'=>$tag->posts,'categories'=>$categories,'tags'=>$tags]);
+    }
+    
     public function create()
     {
         $post = new Post;
@@ -66,8 +82,9 @@ class PostController extends Controller
     }
     public function show(Post $post)
     {
-        $categories = Category::all();
-        return view('posts.show',['post'=>$post,'categories'=>$categories]);
+        $categories = $this->categories();
+        $tags = $this->tags();
+        return view('posts.show',['post'=>$post,'categories'=>$categories,'tags'=>$tags]);
     }
     public function edit(Post $post)
     {

@@ -79,7 +79,7 @@
     </div>
     <div class="widget-tags">
         @foreach ($tags as $tag)
-            <a href="">{{$tag->name}}</a>
+            <a href="/posts/tag/{{$tag->id}}">{{$tag->name}}</a>
         @endforeach
         
     </div>

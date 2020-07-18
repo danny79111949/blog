@@ -10,6 +10,9 @@
                     @if (request()->category)
                         /{{request()->category->name}}
                     @endif
+                    @if (request()->tag)
+                        #{{request()->tag->name}}
+                    @endif
                 </h4>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/">首頁</a>

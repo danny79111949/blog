@@ -55,7 +55,7 @@
                                     <h6 class="text-uppercase">標籤 </h6>
 
                                     @foreach ($post->tags as $tag)
-                                        <a href="">{{$tag->name}}</a>
+                                        <a href="/posts/tag/{{$tag->id}}">{{$tag->name}}</a>
                                     @endforeach
                                 </div>
                             @endif
