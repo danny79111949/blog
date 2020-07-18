@@ -36,7 +36,7 @@ $actionUrl = $isCreate ? '/posts' : '/posts/'.$post->id;
 
     <div class="from-group">
         <label>標籤</label>
-        <input type="text" name="tags" class="form-control" value=""/>
+        <input type="text" name="tags" class="form-control" value="{{$post->tagsString()}}"/>
     </div>
     
     <div class="from-group">

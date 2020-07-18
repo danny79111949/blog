@@ -43,15 +43,21 @@ class PostController extends Controller
         $post->user_id = Auth::id();
         $post->save();
 
-        $tags = explode(',',$request->tags);
-
+        if($request->tags!="")
+        {
+            $tags = explode(',',$request->tags);
+            $this->addTagsToPost($tags,$post);
+        }
+        
+        return redirect('/posts/admin');
+    }
+    private function addTagsToPost( $tags, $post)
+    {
         foreach($tags as $tag)
         {
             $model = Tag::firstOrCreate(['name'=>$tag]);
             $post->tags()->attach($model->id);
         }
-        
-        return redirect('/posts/admin');
     }
     public function showByAdmin(Post $post)
     {
@@ -72,6 +78,15 @@ class PostController extends Controller
     {
         $post->fill($request->all());
         $post->save();
+
+        $post->tags()->detach();
+
+        if($request->tags!="")
+        {
+            $tags = explode(',',$request->tags);
+            $this->addTagsToPost($tags,$post);
+        }
+        
         return redirect('/posts/admin');
     }
     public function destroy(Post $post)
