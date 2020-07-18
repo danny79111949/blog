@@ -50,17 +50,17 @@
                         
                         <div class="inline-block">
 
-                            <div class="widget-tags">
-                                <h6 class="text-uppercase">Tags </h6>
+                            @if ($post->tags->count()>0)
+                                <div class="widget-tags">
+                                    <h6 class="text-uppercase">標籤 </h6>
 
-                                @foreach ($post->tags as $tag)
-                                    <a href="">{{$tag->name}}</a>
-                                @endforeach
-                                
-                                
-                            </div>
+                                    @foreach ($post->tags as $tag)
+                                        <a href="">{{$tag->name}}</a>
+                                    @endforeach
+                                </div>
+                            @endif
+                            
                         </div>
-
 
                         <div class="clearfix inline-block m-top-50 m-bot-50">
                             <h6 class="text-uppercase">Share this Post </h6>
