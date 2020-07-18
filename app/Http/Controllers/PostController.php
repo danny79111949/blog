@@ -22,7 +22,8 @@ class PostController extends Controller
     {
         $posts = Post::all();
         $categories = Category::all();
-        return view('posts.index',['posts'=>$posts,'categories'=>$categories]);
+        $tags = Tag::all();
+        return view('posts.index',['posts'=>$posts,'categories'=>$categories,'tags'=>$tags]);
     }
     public function indexWithCategory(Category $category)
     {
@@ -43,11 +44,8 @@ class PostController extends Controller
         $post->user_id = Auth::id();
         $post->save();
 
-        if($request->tags!="")
-        {
-            $tags = explode(',',$request->tags);
-            $this->addTagsToPost($tags,$post);
-        }
+        $tags = explode(',',$request->tags);
+        $this->addTagsToPost($tags,$post);
         
         return redirect('/posts/admin');
     }
@@ -55,8 +53,11 @@ class PostController extends Controller
     {
         foreach($tags as $tag)
         {
-            $model = Tag::firstOrCreate(['name'=>$tag]);
-            $post->tags()->attach($model->id);
+            if($tag!="")
+            {
+                $model = Tag::firstOrCreate(['name'=>$tag]);
+                $post->tags()->attach($model->id);
+            }
         }
     }
     public function showByAdmin(Post $post)
@@ -81,11 +82,8 @@ class PostController extends Controller
 
         $post->tags()->detach();
 
-        if($request->tags!="")
-        {
-            $tags = explode(',',$request->tags);
-            $this->addTagsToPost($tags,$post);
-        }
+        $tags = explode(',',$request->tags);
+        $this->addTagsToPost($tags,$post);
         
         return redirect('/posts/admin');
     }
