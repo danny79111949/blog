@@ -23,7 +23,10 @@
 <div class="page-content">
     <div class="container">
         <h1 class="mb-0">{{$post->title}}</h1>
-        @if(isset($post->category))<small class="d-block text-muted">{{$post->category->name}}</small>@endif
+        @if(isset($post->category))
+            <small class="d-block text-muted">{{$post->category->name}}</small>
+        @endif
+        <small class="d-block text-muted">{{$post->tagsString()}}</small>
         
         <small>{{$post->user->name}}</small>
         <div class="toolbox text-left mt-3">
