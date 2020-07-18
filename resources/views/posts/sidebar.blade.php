@@ -75,16 +75,13 @@
 <!--tags widget-->
 <div class="widget">
     <div class="heading-title-alt text-left heading-border-bottom">
-        <h6 class="text-uppercase">tag cloud</h6>
+        <h6 class="text-uppercase">標籤</h6>
     </div>
     <div class="widget-tags">
-        <a href="">Portfolio</a>
-        <a href="">Design</a>
-        <a href="">Link</a>
-        <a href="">Gallery</a>
-        <a href="">Video</a>
-        <a href="">Clean</a>
-        <a href="">Retina</a>
+        @foreach ($tags as $tag)
+            <a href="">{{$tag->name}}</a>
+        @endforeach
+        
     </div>
 </div>
 <!--tags widget-->
