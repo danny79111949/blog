@@ -39,7 +39,7 @@
                     </div>
                     <div class="blog-post">
                         <div class="full-width">
-                            <img src="{{$post->thumbnail}}" alt="" />
+                            <img src="/{{$post->thumbnail}}" alt="" />
                         </div>
                         <h4 class="text-uppercase"><a href="/posts/{{$post->id}}">{{$post->title}}</a></h4>
                         <ul class="post-meta">
