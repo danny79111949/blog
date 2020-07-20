@@ -255,13 +255,18 @@
                             <div class="row">
                                 <div class="col-md-6 form-group">
                                     <!-- Name -->
-                                    <input type="text" name="name" id="name" class=" form-control" placeholder="姓名" maxlength="100" required="">
+                                    @if (Auth::check())
+                                        <input type="text" name="name" id="name" class=" form-control" placeholder="姓名" maxlength="100" required="" value="{{Auth::user()->name}}">
+                                    @else
+                                        <input type="text" name="name" id="name" class=" form-control" placeholder="姓名" maxlength="100" required="" >
+                                    @endif
+                                    
                                 </div>
 
                                 
                                 <!-- Comment -->
                                 <div class="form-group col-md-12">
-                                    <textarea name="comment" id="text" class=" form-control" rows="6" placeholder="留言...." maxlength="400"></textarea>
+                                    <textarea name="comment" id="text" class=" form-control" rows="6" placeholder="留言...." maxlength="400" required=""></textarea>
                                 </div>
 
                                 <!-- Send Button -->

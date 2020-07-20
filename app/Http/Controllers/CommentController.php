@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StoreCommentRequest;
 
 class CommentController extends Controller
 {
@@ -14,7 +15,7 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCommentRequest $request)
     {
         $comment = new Comment;
         $comment->fill($request->all());
@@ -32,7 +33,7 @@ class CommentController extends Controller
      * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comment $comment)
+    public function update(StoreCommentRequest $request, Comment $comment)
     {
         
     }
