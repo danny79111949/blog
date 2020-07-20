@@ -38,6 +38,9 @@ Route::get('/posts','PostController@index');
 Route::get('/posts/category/{category}','PostController@indexWithCategory');
 Route::get('/posts/tag/{tag}','PostController@indexWithTag');
 
+Route::resource('comments', 'CommentController')->only(['store','update','destroy']);
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
