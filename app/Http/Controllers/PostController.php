@@ -55,13 +55,17 @@ class PostController extends Controller
     }
     public function store(StoreBlogPost $request)
     {
-        $path = $request->file('thumbnail')->store('public');
-        $path = str_replace('public/','storage/',$path);
-        
         $post = new Post;
         $post->fill($request->all());
         $post->user_id = Auth::id();
-        $post->thumbnail = $path;
+
+        if(!is_null($request->file('thumbnail')))
+        {
+            $path = $request->file('thumbnail')->store('public');
+            $path = str_replace('public/','/storage/',$path);
+            $post->thumbnail = $path;
+        }
+        
         $post->save();
 
         $tags = explode(',',$request->tags);
@@ -98,11 +102,14 @@ class PostController extends Controller
 
     public function update(StoreBlogPost $request,Post $post)
     {
-        $path = $request->file('thumbnail')->store('public');
-        $path = str_replace('public/','storage/',$path);
-        $post->thumbnail = $path;
-
         $post->fill($request->all());
+
+        if(!is_null($request->file('thumbnail')))
+        {
+            $path = $request->file('thumbnail')->store('public');
+            $path = str_replace('public/','/storage/',$path);
+            $post->thumbnail = $path;
+        }
         $post->save();
 
         $post->tags()->detach();

@@ -23,7 +23,10 @@ $actionUrl = $isCreate ? '/posts' : '/posts/'.$post->id;
     </div>
 
     <div class="form-group">
-        <label>圖片</label>
+        <label class="d-block">圖片</label>
+        @if($post->thumbnail)
+            <img width="320" src="{{$post->thumbnail}}"/>
+        @endif
         <div class="custom-file">
             <input type="file" name="thumbnail" class="custom-file-input" id="customFile" />
             <label class="custom-file-label" for="customFIle">請選擇檔案</label>
