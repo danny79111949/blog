@@ -52,7 +52,7 @@
                                 </a>
                             </li>
                             @endif
-                            <li><i class="fa fa-comments"></i>  <a href="#">4 comments</a>
+                            <li><i class="fa fa-comments"></i>  <a href="#">{{$post->comments->count()}} 篇留言</a>
                             </li>
                         </ul>
                         <p>{{str_limit($post->content,200)}}</p>
