@@ -62,16 +62,6 @@
                             
                         </div>
 
-                        <div class="clearfix inline-block m-top-50 m-bot-50">
-                            <h6 class="text-uppercase">Share this Post </h6>
-                            <div class="widget-social-link circle">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-dribbble"></i></a>
-                                <a href="#"><i class="fa fa-google-plus"></i></a>
-                                <a href="#"><i class="fa fa-behance"></i></a>
-                            </div>
-                        </div>
 
 
                         <div class="pagination-row">
