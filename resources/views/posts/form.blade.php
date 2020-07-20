@@ -12,15 +12,25 @@ $actionUrl = $isCreate ? '/posts' : '/posts/'.$post->id;
         </ul>
     </div>
 @endif
-<form method="POST" action="{{$actionUrl}}">
+<form method="POST" action="{{$actionUrl}}" enctype="multipart/form-data">
     @csrf
     @if(!$isCreate)
     <input type="hidden" name="_method" value="put"/>
     @endif
-    <div class="from-group">
+    <div class="from-group ">
         <label>標題</label>
         <input type="text" name="title" class="form-control" value="{{$post->title}}"/>
     </div>
+
+    <div class="form-group">
+        <label>圖片</label>
+        <div class="custom-file">
+            <input type="file" name="thumbnail" class="custom-file-input" id="customFile" />
+            <label class="custom-file-label" for="customFIle">請選擇檔案</label>
+        </div>
+    </div>
+    
+
     <div class="from-group">
         <label>分類</label>
         <select class="form-control" name="category_id">
