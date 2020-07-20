@@ -33,6 +33,11 @@
             <a href="/posts/{{$post->id}}/edit" class="btn btn-primary">修改</a>
             <button class="btn btn-secondary" onclick="window.history.back()">取消</button>
         </div>
+        @if(!$post->thumbnail)
+            <div class="text-danger">沒有圖片</div>
+        @else
+            <img src="{{$post->thumbnail}}" width="640"/>
+        @endif
         <div class="content">{{$post->content}}</div>
     </div>
 </div>
