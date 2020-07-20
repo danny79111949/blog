@@ -28,7 +28,7 @@
                 <div class="blog-classic">
                     <div class="blog-post">
                         <div class="full-width">
-                            <img src="/assets/img/post/p12.jpg" alt="" />
+                            <img src="{{$post->thumbnail}}" alt="" />
                         </div>
                         <h4 class="text-uppercase"><a href="#">{{$post->title}}</a></h4>
                         <ul class="post-meta">
