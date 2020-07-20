@@ -56,7 +56,7 @@ class PostController extends Controller
     public function store(StoreBlogPost $request)
     {
         $path = $request->file('thumbnail')->store('public');
-        $path = str_replace('public/','storage/',$path);
+        $path = str_replace('public/','/storage/',$path);
         
         $post = new Post;
         $post->fill($request->all());
