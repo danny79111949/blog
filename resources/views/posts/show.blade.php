@@ -121,14 +121,24 @@
                                         <div class="comment-info">
                                             <div class="comment-author">
                                                 <a href="#">{{$comment->name}}</a>
+                                                <button class="btn btn-default" onclick="toggleCommentForm(event)">編輯</button>
+                                                <button class="btn btn-default">刪除</button>
                                             </div>
                                             {{$comment->created_at}}
                                             
                                         </div>
 
-                                        <p>
-                                            {{$comment->comment}}
-                                        </p>
+                                        <div class="comment-body">
+                                            <p>
+                                                {{$comment->comment}}
+                                            </p>
+                                            <form class="update-comment" action="/comments/{{$comment->id}}" method="POST">
+                                                <input type="text" value="{{$comment->comment}}" name="comment"/>
+                                                <button>更新</button>
+                                            </form>
+                                        </div>
+
+                                        
 
                                     </div>
 

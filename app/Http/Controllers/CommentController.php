@@ -33,9 +33,10 @@ class CommentController extends Controller
      * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreCommentRequest $request, Comment $comment)
+    public function update(Request $request, Comment $comment)
     {
-        
+        $comment->fill($request->all());
+        $comment->save();
     }
 
     /**
