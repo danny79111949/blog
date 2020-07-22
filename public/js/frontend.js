@@ -12875,14 +12875,32 @@ toggleCommentForm = function toggleCommentForm(e) {
 $('form.update-comment').submit(function (e) {
   e.preventDefault();
   var comment = $(e.currentTarget).find('[name="comment"]').val();
+  var post_id = $(e.currentTarget).find('[name="post_id"]').val();
+  var name = $(e.currentTarget).find('[name="name"]').val();
   $.post($(e.currentTarget).attr('action'), {
     _method: 'put',
-    comment: comment
+    comment: comment,
+    name: name,
+    post_id: post_id
   }).done(function (data) {
     $(e.currentTarget).closest('.comment-body').toggleClass('edit');
     $(e.currentTarget).siblings('p').html(comment);
   });
 });
+
+deleteComment = function deleteComment(e) {
+  var result = confirm('請問你真的要刪除留言嗎?');
+  var action = $(e.currentTarget).data('action');
+  var comment = $(e.currentTarget).closest('.media');
+
+  if (result) {
+    $.post(action, {
+      _method: 'delete'
+    }).done(function (data) {
+      comment.remove();
+    });
+  }
+};
 
 /***/ }),
 

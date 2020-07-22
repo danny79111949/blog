@@ -121,8 +121,11 @@
                                         <div class="comment-info">
                                             <div class="comment-author">
                                                 <a href="#">{{$comment->name}}</a>
-                                                <button class="btn btn-default" onclick="toggleCommentForm(event)">編輯</button>
-                                                <button class="btn btn-default">刪除</button>
+                                                @if (Auth::check() && Auth::id()==$comment->user_id)
+                                                    <button class="btn btn-default" onclick="toggleCommentForm(event)">編輯</button>
+                                                    <button class="btn btn-default" onclick="deleteComment(event)" data-action="/comments/{{$comment->id}}">刪除</button>
+                                                @endif
+                                                
                                             </div>
                                             {{$comment->created_at}}
                                             
@@ -133,6 +136,8 @@
                                                 {{$comment->comment}}
                                             </p>
                                             <form class="update-comment" action="/comments/{{$comment->id}}" method="POST">
+                                                <input type="hidden" name="post_id" value="{{$comment->post_id}}"/>
+                                                <input type="hidden" name="name" value="{{$comment->name}}"/>
                                                 <input type="text" value="{{$comment->comment}}" name="comment"/>
                                                 <button>更新</button>
                                             </form>

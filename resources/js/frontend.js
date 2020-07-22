@@ -43,11 +43,26 @@ toggleCommentForm = function(e){
 $('form.update-comment').submit(function(e){
     e.preventDefault();
     let comment = $(e.currentTarget).find('[name="comment"]').val();
+    let post_id = $(e.currentTarget).find('[name="post_id"]').val();
+    let name = $(e.currentTarget).find('[name="name"]').val();
     $.post($(e.currentTarget).attr('action'),{
         _method:'put',
         comment:comment,
+        name:name,
+        post_id:post_id,
     }).done(function(data){
         $(e.currentTarget).closest('.comment-body').toggleClass('edit');
         $(e.currentTarget).siblings('p').html(comment);
     });
 });
+
+deleteComment = function(e){
+    let result = confirm('請問你真的要刪除留言嗎?');
+    let action = $(e.currentTarget).data('action');
+    let comment = $(e.currentTarget).closest('.media');
+    if(result){
+        $.post(action,{ _method:'delete',}).done(function(data){
+            comment.remove();
+        });
+    }
+};
