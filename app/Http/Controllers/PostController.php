@@ -90,9 +90,11 @@ class PostController extends Controller
     }
     public function show(Post $post)
     {
+        $prevPostId=Post::where('id' ,'<' ,$post->id)->max('id');
+        $nextPostId=Post::where('id' ,'>' ,$post->id)->min('id');
         $categories = $this->categories();
         $tags = $this->tags();
-        return view('posts.show',['post'=>$post,'categories'=>$categories,'tags'=>$tags]);
+        return view('posts.show',['post'=>$post,'categories'=>$categories,'tags'=>$tags,'prevPostId'=>$prevPostId,'nextPostId'=>$nextPostId]);
     }
     public function edit(Post $post)
     {

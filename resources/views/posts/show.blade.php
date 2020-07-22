@@ -62,52 +62,44 @@
                             
                         </div>
 
-
-
                         <div class="pagination-row">
-
                             <div class="pagination-post">
                                 <div class="prev-post">
-                                    <a href="#">
+                                    <a href="@if($prevPostId)/posts/{{$prevPostId}}@else # @endif">
                                         <div class="arrow">
                                             <i class="fa fa-angle-double-left"></i>
                                         </div>
                                         <div class="pagination-txt">
-                                            <span>Previous Post</span>
+                                            <span>上一篇</span>
                                         </div>
                                     </a>
                                 </div>
 
                                 <div class="post-list-link">
-                                    <a href="#">
+                                    <a href="/posts">
                                         <i class="fa fa-home"></i>
                                     </a>
                                 </div>
 
                                 <div class="next-post">
-                                    <a href="#">
+                                    <a href="@if($nextPostId)/posts/{{$nextPostId}} @else # @endif">
                                         <div class="arrow">
                                             <i class="fa fa-angle-double-right"></i>
                                         </div>
                                         <div class="pagination-txt">
-                                            <span>Next Post</span>
+                                            <span>下一篇</span>
                                         </div>
                                     </a>
                                 </div>
 
                             </div>
-
                         </div>
-
-
-                        <!--comments discussion section start-->
 
                         <div class="heading-title-alt text-left heading-border-bottom">
                             <h4 class="text-uppercase">{{$post->comments->count()}} 篇留言</h4>
                         </div>
 
                         <ul class="media-list comments-list m-bot-50 clearlist">
-
 
                             @foreach ($post->comments as $comment)
                                 <li class="media">
@@ -142,21 +134,13 @@
                                                 <button>更新</button>
                                             </form>
                                         </div>
-
-                                        
-
                                     </div>
 
                                 </li>
                             @endforeach
-                            
-                            
                         </ul>
 
-                        <!--comments discussion section end-->
-
                         
-
                         <div class="heading-title-alt text-left heading-border-bottom">
                             <h4 class="text-uppercase">留言區</h4>
                         </div>
@@ -175,7 +159,6 @@
                                     
                                 </div>
 
-                                
                                 <!-- Comment -->
                                 <div class="form-group col-md-12">
                                     <textarea name="comment" id="text" class=" form-control" rows="6" placeholder="留言...." maxlength="400" required=""></textarea>
