@@ -35,16 +35,17 @@ class PostController extends Controller
     }
     public function indexWithCategory(Category $category)
     {
-        $posts = Post::where('category_id',$category->id)->get();
+        $posts = Post::where('category_id',$category->id)->paginate(5);
         $categories = $this->categories();
         $tags = $this->tags();
         return view('posts.index',['posts'=>$posts,'categories'=>$categories,'tags'=>$tags]);
     }
     public function indexWithTag(Tag $tag)
     {
+        $posts = $tag->posts()->paginate(5);
         $categories = $this->categories();
         $tags = $this->tags();
-        return view('posts.index',['posts'=>$tag->posts,'categories'=>$categories,'tags'=>$tags]);
+        return view('posts.index',['posts'=>$posts,'categories'=>$categories,'tags'=>$tags]);
     }
     
     public function create()
