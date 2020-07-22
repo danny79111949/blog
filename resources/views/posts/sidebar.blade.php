@@ -23,7 +23,7 @@ $lastestComments = Comment::orderBy('created_at','desc')->take(4)->get();
                     </a>
                 </div>
                 <div class="w-desk">
-                    <a href="#">{{$post->title}}</a>
+                    <a href="/posts/{{$post->id}}">{{$post->title}}</a>
                     {{$post->created_at}}
                 </div>
             </li>
